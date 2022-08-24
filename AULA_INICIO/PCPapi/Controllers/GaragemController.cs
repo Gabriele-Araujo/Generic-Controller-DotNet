@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GenericController;
+using GenericController.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,11 @@ namespace GenericController_ini.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GaragemController : ControllerBase
+    public class GaragemController : GenericController<Garagem, int>
     {
+        public GaragemController(DbAplication context) : base(context)
+        {
+
+        }
     }
 }
